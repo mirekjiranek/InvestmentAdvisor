@@ -8,6 +8,10 @@ using Application.DTOs;
 using Application.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using Domain.Interfaces;
+using Domain.Services;
+
+using Microsoft.Extensions.Configuration;
 
 namespace Application.DependencyInjection
 {
