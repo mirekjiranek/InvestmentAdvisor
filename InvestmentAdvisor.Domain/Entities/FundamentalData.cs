@@ -11,6 +11,11 @@ namespace Domain.Entities
 
         public Guid InvestmentInstrumentId { get; private set; }
 
+        /// <summary>
+        /// Navigační vlastnost na InvestmentInstrument.
+        /// </summary>
+        public InvestmentInstrument InvestmentInstrument { get; private set; }
+
         // Valuační ukazatele (P/E, P/B, EV/EBITDA atd.)
         public ValuationMetrics Valuation { get; private set; }
 

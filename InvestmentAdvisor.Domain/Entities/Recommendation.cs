@@ -15,6 +15,11 @@ namespace Domain.Entities
         public Guid InvestmentInstrumentId { get; private set; }
 
         /// <summary>
+        /// Navigační vlastnost na InvestmentInstrument.
+        /// </summary>
+        public InvestmentInstrument InvestmentInstrument { get; private set; }
+
+        /// <summary>
         /// Akce doporučení v rozšířené formě.
         /// </summary>
         public RecommendationAction Action { get; private set; }

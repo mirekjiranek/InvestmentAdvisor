@@ -13,17 +13,16 @@ namespace Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<FundamentalData> builder)
         {
+            // Definice primárního klíče
             builder.HasKey(f => f.Id);
 
-            // Vztah: jedna FundamentalData náleží jednomu InvestmentInstrument
-            builder.HasOne<InvestmentInstrument>()
+            // Konfigurace jednoho k jednomu vztahu s InvestmentInstrument
+            builder.HasOne(f => f.InvestmentInstrument)
                    .WithOne(i => i.FundamentalData)
                    .HasForeignKey<FundamentalData>(f => f.InvestmentInstrumentId)
                    .OnDelete(DeleteBehavior.Cascade);
 
-            // Jelikož ValuationMetrics, GrowthMetrics atd. jsou ValueObjects,
-            // uložíme je pomocí OwnsOne:
-
+            // Konfigurace vlastnictví (Owned Types)
             builder.OwnsOne(f => f.Valuation, vo =>
             {
                 vo.Property(v => v.PE).HasColumnName("Valuation_PE");
