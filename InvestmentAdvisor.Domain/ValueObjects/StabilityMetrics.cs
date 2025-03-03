@@ -8,5 +8,6 @@ namespace Domain.ValueObjects
         decimal CurrentRatio,
         decimal QuickRatio,
         decimal InterestCoverage,
+        decimal EarningsStability = 0, // Stabilita zisků (0-1, kde 1 = velmi stabilní)
         bool IsDataVerified = false);
 }

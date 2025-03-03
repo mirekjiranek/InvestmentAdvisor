@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Domain.Entities
 {
     /// <summary>
-    /// Rozšířené doporučení.
+    /// Rozšířené doporučení s více časovými horizonty a odvětvovým kontextem.
     /// </summary>
     public class Recommendation
     {
@@ -33,6 +33,11 @@ namespace Domain.Entities
         /// Časový horizont (např. "Krátkodobý", "Střednědobý", "Dlouhodobý")
         /// </summary>
         public string TimeHorizon { get; private set; }
+        
+        /// <summary>
+        /// Alias pro TimeHorizon - používaný v některých modelech
+        /// </summary>
+        public string TimePeriod => TimeHorizon;
 
         /// <summary>
         /// Cílová cena, kam by se akcie/ETF mohla dostat v rámci daného horizontu.
@@ -48,6 +53,26 @@ namespace Domain.Entities
         /// Úroveň rizika (např. "Nízké", "Střední", "Vysoké")
         /// </summary>
         public string RiskLevel { get; private set; }
+        
+        /// <summary>
+        /// Postavení společnosti v sektoru (např. "Leader", "Average", "Laggard")
+        /// </summary>
+        public string SectorPosition { get; private set; }
+        
+        /// <summary>
+        /// Krátkodobý výhled (1-3 měsíce)
+        /// </summary>
+        public string ShortTermOutlook { get; private set; }
+        
+        /// <summary>
+        /// Střednědobý výhled (6-12 měsíců)
+        /// </summary>
+        public string MidTermOutlook { get; private set; }
+        
+        /// <summary>
+        /// Dlouhodobý výhled (2-3 roky)
+        /// </summary>
+        public string LongTermOutlook { get; private set; }
 
         protected Recommendation() { }
 
@@ -57,7 +82,11 @@ namespace Domain.Entities
             string timeHorizon,
             decimal targetPrice,
             string rationale,
-            string riskLevel)
+            string riskLevel,
+            string sectorPosition = "",
+            string shortTermOutlook = "",
+            string midTermOutlook = "",
+            string longTermOutlook = "")
         {
             Id = Guid.NewGuid();
             Action = action;
@@ -66,6 +95,10 @@ namespace Domain.Entities
             TargetPrice = targetPrice;
             Rationale = rationale;
             RiskLevel = riskLevel;
+            SectorPosition = sectorPosition;
+            ShortTermOutlook = shortTermOutlook;
+            MidTermOutlook = midTermOutlook;
+            LongTermOutlook = longTermOutlook;
         }
     }
 

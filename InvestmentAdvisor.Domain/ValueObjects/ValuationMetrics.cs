@@ -19,5 +19,6 @@ namespace Domain.ValueObjects
         public decimal PriceBook => PB;
         public decimal EvEbitda => EV_EBITDA;
         public decimal EVEBITDA => EV_EBITDA;
+        public decimal PS => PriceSales;
     }
 }
