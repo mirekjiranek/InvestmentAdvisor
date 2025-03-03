@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using InvestmentAdvisor.Web;
-
+using System;
 
 namespace InvestmentAdvisor.Web
 {
@@ -22,7 +22,7 @@ namespace InvestmentAdvisor.Web
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Host terminated unexpectedly.");
+                Log.Fatal(ex, "Host terminated unexpectedly: {Error}", ex.Message);
             }
             finally
             {

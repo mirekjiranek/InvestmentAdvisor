@@ -5,6 +5,7 @@
     /// </summary>
     public record CashFlowMetrics(
         decimal CurrentFCF,        // Aktuální roční Free Cash Flow
-        decimal ProjectedFCFGrowth // Předpokládaný růst FCF v procentech (např. 0.08 = 8 % ročně)
+        decimal ProjectedFCFGrowth, // Předpokládaný růst FCF v procentech (např. 0.08 = 8 % ročně)
+        decimal FreeCashFlowYield = 0.0m // FCF výnos (FCF/tržní kapitalizace)
     );
 }

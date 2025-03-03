@@ -18,8 +18,14 @@ namespace Infrastructure.Data.Configurations
             builder.Property(r => r.Score).HasColumnName("Score");
             builder.Property(r => r.TimeHorizon).HasColumnName("TimeHorizon");
             builder.Property(r => r.TargetPrice).HasColumnName("TargetPrice");
-            builder.Property(r => r.Rationale).HasColumnName("Rationale");
+            builder.Property(r => r.Rationale).HasColumnName("Rationale").HasColumnType("text");
             builder.Property(r => r.RiskLevel).HasColumnName("RiskLevel");
+            
+            // Nová pole pro vylepšená doporučení
+            builder.Property(r => r.SectorPosition).HasColumnName("SectorPosition");
+            builder.Property(r => r.ShortTermOutlook).HasColumnName("ShortTermOutlook");
+            builder.Property(r => r.MidTermOutlook).HasColumnName("MidTermOutlook");
+            builder.Property(r => r.LongTermOutlook).HasColumnName("LongTermOutlook");
         }
     }
 }

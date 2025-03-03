@@ -1,8 +1,6 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Domain.Interfaces
@@ -17,6 +15,6 @@ namespace Domain.Interfaces
         /// Získá investiční nástroj podle jeho symbolu (např. "AAPL").
         /// Pokud neexistuje, vrátí null.
         /// </summary>
-        Task<InvestmentInstrument?> GetBySymbolAsync(string symbol);
+        Task<InvestmentInstrument?> GetBySymbolAsync(string symbol, CancellationToken cancellationToken = default);
     }
 }

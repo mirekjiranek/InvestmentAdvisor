@@ -6,5 +6,9 @@
     public record MarketRiskMetrics(
         decimal Beta,
         decimal SharpeRatio,
-        decimal StandardDeviation);
+        decimal StandardDeviation)
+    {
+        // Alias pro StandardDeviation
+        public decimal Volatility => StandardDeviation;
+    }
 }
