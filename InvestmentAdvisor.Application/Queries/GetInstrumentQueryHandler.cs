@@ -1,9 +1,10 @@
-﻿using Application.DTOs;
+using Application.DTOs;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Application.Queries
@@ -27,7 +28,7 @@ namespace Application.Queries
         public async Task<InstrumentDto?> HandleAsync(GetInstrumentQuery query, CancellationToken cancellationToken = default)
         {
             // Načteme instrument z repozitáře:
-            var instrument = await _repository.GetBySymbolAsync(query.Symbol);
+            var instrument = await _repository.GetBySymbolAsync(query.Symbol, cancellationToken);
 
             if (instrument == null)
                 return null;

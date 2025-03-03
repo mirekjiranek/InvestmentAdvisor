@@ -8,5 +8,9 @@
         decimal DividendPayoutRatio,   // Poměr výplaty dividendy
         decimal DividendGrowth,        // Růst dividendy
         decimal CurrentAnnualDividend  // Aktuální roční dividenda
-    );
+    )
+    {
+        // Alias pro DividendPayoutRatio
+        public decimal PayoutRatio => DividendPayoutRatio;
+    }
 }
