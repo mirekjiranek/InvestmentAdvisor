@@ -1,5 +1,9 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 using Domain.Interfaces;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Domain.Services
 {
@@ -97,6 +101,13 @@ namespace Domain.Services
                 rationale: rationale,
                 riskLevel: riskLevel
             );
+        }
+
+        public async Task<Recommendation> GenerateRecommendationAsync(InvestmentInstrument instrument, CancellationToken cancellationToken = default)
+        {
+            // Asynchronní implementace, která deleguje na synchronní metodu
+            // V reálném scénáři by tato metoda mohla provádět další asynchronní operace
+            return await Task.Run(() => GenerateRecommendation(instrument), cancellationToken);
         }
     }
 }

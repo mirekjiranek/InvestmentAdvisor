@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Adapters.APIs
@@ -9,12 +8,12 @@ namespace Infrastructure.Adapters.APIs
     public class AlphaVantageClient : IAlphaVantageClient
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "1NXFY3QF7T7V6PH8";
+        private readonly string _apiKey;
 
-        public AlphaVantageClient(HttpClient httpClient, string apiKey)
+        public AlphaVantageClient(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _apiKey = apiKey;
+            _apiKey = configuration["ApiKeys:AlphaVantage"];
         }
 
         public async Task<string> GetDailyPricesAsync(string symbol, string outputSize = "compact")

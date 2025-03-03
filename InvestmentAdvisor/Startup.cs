@@ -1,6 +1,6 @@
 ﻿using Application.DependencyInjection;
 using Infrastructure.DependencyInjection;
-// Předpokládáme, že `AddApplicationServices()` je v InvestmentAdvisor.Application
+using InvestmentAdvisor.Web.Middleware;
 
 namespace InvestmentAdvisor.Web
 {
@@ -37,6 +37,11 @@ namespace InvestmentAdvisor.Web
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "InvestmentAdvisor API v1"));
+            }
+            else
+            {
+                // Use custom exception handling middleware in non-development environments
+                app.UseExceptionHandling();
             }
 
             app.UseRouting();

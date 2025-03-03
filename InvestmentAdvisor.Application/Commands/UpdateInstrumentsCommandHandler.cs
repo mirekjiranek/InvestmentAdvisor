@@ -1,8 +1,9 @@
-﻿using Domain.Interfaces;
+using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Application.Commands
@@ -31,14 +32,8 @@ namespace Application.Commands
 
         public async Task HandleAsync(UpdateInstrumentsCommand command, CancellationToken cancellationToken = default)
         {
-            // Pro každý symbol zavoláme službu pro aktualizaci dat.
-            // Tato služba provede potřebné operace: načtení dat z API, uložení do DB.
-            // Application tak řeší orchestraci logiky, ne detaily implementace.
-            foreach (var symbol in command.SymbolsToUpdate)
-            {
-                await _dataAcquisitionService.FullUpdateAsync(symbol);
-                // FullUpdateAsync - doménová logika/infrastrukturní služba, která aktualizuje data
-            }
+            // Využijeme novou metodu UpdateInstrumentsDataAsync, která zpracuje seznam symbolů najednou
+            await _dataAcquisitionService.UpdateInstrumentsDataAsync(command.SymbolsToUpdate, cancellationToken);
         }
     }
 
