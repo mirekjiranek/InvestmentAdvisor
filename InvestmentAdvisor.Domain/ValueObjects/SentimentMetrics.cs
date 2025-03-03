@@ -1,4 +1,4 @@
-﻿namespace Domain.ValueObjects
+namespace Domain.ValueObjects
 {
     /// <summary>
     /// Sentiment a analytické odhady
@@ -6,5 +6,6 @@
     public record SentimentMetrics(
         decimal ConsensusTargetPrice,
         string AnalystRecommendation,  
-        decimal MediaSentimentScore);  
+        decimal MediaSentimentScore,
+        decimal AnalystConsensus = 0);  
 }

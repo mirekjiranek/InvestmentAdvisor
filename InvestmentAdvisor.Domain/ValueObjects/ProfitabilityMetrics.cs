@@ -1,12 +1,14 @@
-﻿namespace Domain.ValueObjects
+namespace Domain.ValueObjects
 {
     /// <summary>
-    /// Profitabilita (ROE, ROA, marže)
+    /// Profitabilita (ROE, ROA, marže, ROIC, trendy)
     /// </summary>
     public record ProfitabilityMetrics(
         decimal ROE,
         decimal ROA,
         decimal GrossMargin,
         decimal OperatingMargin,
-        decimal NetMargin);
+        decimal NetMargin,
+        decimal ROIC = 0,
+        decimal MarginTrend = 0);
 }

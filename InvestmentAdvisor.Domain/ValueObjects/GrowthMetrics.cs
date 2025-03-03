@@ -11,5 +11,10 @@
         decimal DividendGrowth,         // Růst dividend
         decimal PredictedFCFGrowth,     // Předpokládaný růst FCF
         decimal LongTermGrowthRate      // Dlouhodobý udržitelný růst
-    );
+    )
+    {
+        // Aliasy
+        public decimal EarningsGrowth => ProfitGrowth;
+        public decimal SalesGrowth => RevenueGrowth;
+    }
 }

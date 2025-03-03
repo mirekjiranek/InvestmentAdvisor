@@ -1,4 +1,5 @@
-﻿using Domain.ValueObjects;
+using Domain.ValueObjects;
+using System;
 
 namespace Domain.Entities
 {
@@ -15,6 +16,16 @@ namespace Domain.Entities
         /// Navigační vlastnost na InvestmentInstrument.
         /// </summary>
         public InvestmentInstrument InvestmentInstrument { get; private set; }
+        
+        /// <summary>
+        /// Pomocné property pro přístup k poslední ceně
+        /// </summary>
+        public decimal Price { get; set; }
+        
+        /// <summary>
+        /// Pomocná hodnota pro přístup k poslední ceně
+        /// </summary>
+        public PriceMetrics PriceMetrics => new PriceMetrics(Price);
 
         // Valuační ukazatele (P/E, P/B, EV/EBITDA atd.)
         public ValuationMetrics Valuation { get; private set; }

@@ -1,4 +1,4 @@
-﻿namespace Domain.ValueObjects
+namespace Domain.ValueObjects
 {
     /// <summary>
     /// Finanční stabilita (Debt/Equity, Current ratio)
@@ -7,5 +7,6 @@
         decimal DebtToEquity,
         decimal CurrentRatio,
         decimal QuickRatio,
-        decimal InterestCoverage);
+        decimal InterestCoverage,
+        bool IsDataVerified = false);
 }

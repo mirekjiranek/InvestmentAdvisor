@@ -81,20 +81,27 @@ namespace Infrastructure.Data.Configurations
                 se.Property(s => s.ConsensusTargetPrice).HasColumnName("Sentiment_TargetPrice");
                 se.Property(s => s.AnalystRecommendation).HasColumnName("Sentiment_AnalystRec");
                 se.Property(s => s.MediaSentimentScore).HasColumnName("Sentiment_MediaScore");
+                se.Property(s => s.AnalystConsensus).HasColumnName("Sentiment_AnalystConsensus");
             });
 
             builder.OwnsOne(f => f.Comparable, co =>
             {
                 co.Property(c => c.SectorAveragePE).HasColumnName("Comp_SectorAvgPE");
+                co.Property(c => c.SectorForwardPE).HasColumnName("Comp_SectorForwardPE");
                 co.Property(c => c.SectorMedianPB).HasColumnName("Comp_SectorMedPB");
+                co.Property(c => c.SectorPriceBook).HasColumnName("Comp_SectorPriceBook");
                 co.Property(c => c.PeerEVEBITDA).HasColumnName("Comp_PeerEVEBITDA");
                 co.Property(c => c.SectorPriceSales).HasColumnName("Comp_SectorPriceSales");
+                co.Property(c => c.SectorPEG).HasColumnName("Comp_SectorPEG");
+                co.Property(c => c.SectorAverageROE).HasColumnName("Comp_SectorAvgROE");
+                co.Property(c => c.SectorAverageNetMargin).HasColumnName("Comp_SectorAvgNetMargin");
             });
 
             builder.OwnsOne(f => f.Earnings, eo =>
             {
                 eo.Property(e => e.EPS).HasColumnName("Earnings_EPS");
                 eo.Property(e => e.EBITDA).HasColumnName("Earnings_EBITDA");
+                eo.Property(e => e.ForwardEPS).HasColumnName("Earnings_ForwardEPS");
             });
 
             builder.OwnsOne(f => f.Revenue, ro =>
