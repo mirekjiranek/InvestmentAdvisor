@@ -33,7 +33,7 @@ namespace InvestmentAdvisor.Web.Controllers
                 Symbol = symbol,
                 Action = recommendation.Action.ToString(),
                 TargetPrice = recommendation.TargetPrice,
-                TimePeriod = recommendation.TimePeriod,
+                //TimePeriod = recommendation.TimePeriod, TODO
                 Rationale = recommendation.Rationale,
                 RiskLevel = recommendation.RiskLevel,
                 Score = recommendation.Score,

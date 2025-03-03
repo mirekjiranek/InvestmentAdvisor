@@ -6,14 +6,12 @@ namespace InvestmentAdvisor.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, ILoggerFactory loggerFactory)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            LoggerFactory = loggerFactory;
         }
 
         public IConfiguration Configuration { get; }
-        public ILoggerFactory LoggerFactory { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -50,7 +48,8 @@ namespace InvestmentAdvisor.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapFallbackToPage("/_Host");
+                // Odstraňuji fallback na _Host, který by vyžadoval Razor Pages
+                // endpoints.MapFallbackToPage("/_Host");
             });
         }
     }
